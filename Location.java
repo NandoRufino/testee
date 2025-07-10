@@ -1,123 +1,42 @@
-package gnu.mapping;
+package gnu.bytecode;
 
-import java.io.PrintWriter;
+public class Location {
+    protected String name;
+    int name_index;
+    int signature_index;
+    protected Type type;
 
-public abstract class Location {
-    public static final String UNBOUND = new String("(unbound)");
-
-    public boolean entered() {
-        return false;
+    public final String getName() {
+        return this.name;
     }
 
-    public abstract Object get(Object obj);
-
-    public Location getBase() {
-        return this;
+    public final void setName(String str) {
+        this.name = str;
     }
 
-    public Object getKeyProperty() {
-        return null;
-    }
-
-    public Symbol getKeySymbol() {
-        return null;
-    }
-
-    public boolean isConstant() {
-        return false;
-    }
-
-    public abstract void set(Object obj);
-
-    public String toString() {
-        StringBuffer stringBuffer = new StringBuffer();
-        stringBuffer.append(getClass().getName());
-        Symbol keySymbol = getKeySymbol();
-        stringBuffer.append('[');
-        if (keySymbol != null) {
-            stringBuffer.append(keySymbol);
-            Object keyProperty = getKeyProperty();
-            if (!(keyProperty == null || keyProperty == this)) {
-                stringBuffer.append('/');
-                stringBuffer.append(keyProperty);
-            }
-        }
-        stringBuffer.append("]");
-        return stringBuffer.toString();
-    }
-
-    public final Object get() {
-        String str = UNBOUND;
-        Object obj = get(str);
-        if (obj != str) {
-            return obj;
-        }
-        throw new UnboundLocationException(this);
-    }
-
-    public void undefine() {
-        set(UNBOUND);
-    }
-
-    public Object setWithSave(Object obj) {
-        Object obj2 = get(UNBOUND);
-        set(obj);
-        return obj2;
-    }
-
-    public void setRestore(Object obj) {
-        set(obj);
-    }
-
-    public boolean isBound() {
-        String str = UNBOUND;
-        return get(str) != str;
-    }
-
-    public final Object getValue() {
-        return get((Object) null);
-    }
-
-    public final Object setValue(Object obj) {
-        Object obj2 = get((Object) null);
-        set(obj);
-        return obj2;
-    }
-
-    public void print(PrintWriter printWriter) {
-        printWriter.print("#<location ");
-        Symbol keySymbol = getKeySymbol();
-        if (keySymbol != null) {
-            printWriter.print(keySymbol);
-        }
-        String str = UNBOUND;
-        Object obj = get(str);
-        if (obj != str) {
-            printWriter.print(" -> ");
-            printWriter.print(obj);
+    public final void setName(int i, ConstantPool constantPool) {
+        if (i <= 0) {
+            this.name = null;
         } else {
-            printWriter.print("(unbound)");
+            this.name = ((CpoolUtf8) constantPool.getForced(i, 1)).string;
         }
-        printWriter.print('>');
+        this.name_index = i;
     }
 
-    public static Location make(Object obj, String str) {
-        ThreadLocation threadLocation = new ThreadLocation(str);
-        threadLocation.setGlobal(obj);
-        return threadLocation;
+    public final Type getType() {
+        return this.type;
     }
 
-    public static IndirectableLocation make(String str) {
-        PlainLocation plainLocation = new PlainLocation(Namespace.EmptyNamespace.getSymbol(str.intern()), (Object) null);
-        plainLocation.base = null;
-        plainLocation.value = UNBOUND;
-        return plainLocation;
+    public final void setType(Type type2) {
+        this.type = type2;
     }
 
-    public static IndirectableLocation make(Symbol symbol) {
-        PlainLocation plainLocation = new PlainLocation(symbol, (Object) null);
-        plainLocation.base = null;
-        plainLocation.value = UNBOUND;
-        return plainLocation;
+    public final String getSignature() {
+        return this.type.getSignature();
+    }
+
+    public void setSignature(int i, ConstantPool constantPool) {
+        this.signature_index = i;
+        this.type = Type.signatureToType(((CpoolUtf8) constantPool.getForced(i, 1)).string);
     }
 }
