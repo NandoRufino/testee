@@ -1,10 +1,9 @@
-package androidx.browser;
+package androidx.core;
 
 public final class R {
 
     public static final class attr {
         public static final int alpha = 2130772318;
-        public static final int coordinatorLayoutStyle = 2130771983;
         public static final int font = 2130772354;
         public static final int fontProviderAuthority = 2130772347;
         public static final int fontProviderCerts = 2130772350;
@@ -15,22 +14,10 @@ public final class R {
         public static final int fontStyle = 2130772353;
         public static final int fontVariationSettings = 2130772356;
         public static final int fontWeight = 2130772355;
-        public static final int keylines = 2130772321;
-        public static final int layout_anchor = 2130772324;
-        public static final int layout_anchorGravity = 2130772326;
-        public static final int layout_behavior = 2130772323;
-        public static final int layout_dodgeInsetEdges = 2130772328;
-        public static final int layout_insetEdge = 2130772327;
-        public static final int layout_keyline = 2130772325;
-        public static final int statusBarBackground = 2130772322;
         public static final int ttcIndex = 2130772357;
     }
 
     public static final class color {
-        public static final int browser_actions_bg_grey = 2131623953;
-        public static final int browser_actions_divider_color = 2131623954;
-        public static final int browser_actions_text_color = 2131623955;
-        public static final int browser_actions_title_color = 2131623956;
         public static final int notification_action_color_filter = 2131623936;
         public static final int notification_icon_bg_color = 2131624009;
         public static final int ripple_material_light = 2131624019;
@@ -38,8 +25,6 @@ public final class R {
     }
 
     public static final class dimen {
-        public static final int browser_actions_context_menu_max_width = 2131361879;
-        public static final int browser_actions_context_menu_min_padding = 2131361880;
         public static final int compat_button_inset_horizontal_material = 2131361884;
         public static final int compat_button_inset_vertical_material = 2131361885;
         public static final int compat_button_padding_horizontal_material = 2131361886;
@@ -87,31 +72,20 @@ public final class R {
         public static final int actions = 2131689676;
         public static final int async = 2131689568;
         public static final int blocking = 2131689569;
-        public static final int bottom = 2131689508;
-        public static final int browser_actions_header_text = 2131689646;
-        public static final int browser_actions_menu_item_icon = 2131689648;
-        public static final int browser_actions_menu_item_text = 2131689649;
-        public static final int browser_actions_menu_items = 2131689647;
-        public static final int browser_actions_menu_view = 2131689645;
         public static final int chronometer = 2131689674;
-        public static final int end = 2131689509;
         public static final int forever = 2131689570;
         public static final int icon = 2131689599;
         public static final int icon_group = 2131689677;
         public static final int info = 2131689670;
         public static final int italic = 2131689571;
-        public static final int left = 2131689510;
         public static final int line1 = 2131689479;
         public static final int line3 = 2131689480;
-        public static final int none = 2131689527;
         public static final int normal = 2131689530;
         public static final int notification_background = 2131689672;
         public static final int notification_main_column = 2131689668;
         public static final int notification_main_column_container = 2131689667;
-        public static final int right = 2131689511;
         public static final int right_icon = 2131689671;
         public static final int right_side = 2131689669;
-        public static final int start = 2131689512;
         public static final int tag_transition_group = 2131689492;
         public static final int tag_unhandled_key_event_manager = 2131689493;
         public static final int tag_unhandled_key_listeners = 2131689494;
@@ -119,7 +93,6 @@ public final class R {
         public static final int text2 = 2131689496;
         public static final int time = 2131689673;
         public static final int title = 2131689500;
-        public static final int top = 2131689513;
     }
 
     public static final class integer {
@@ -127,8 +100,6 @@ public final class R {
     }
 
     public static final class layout {
-        public static final int browser_actions_context_menu_page = 2130968605;
-        public static final int browser_actions_context_menu_row = 2130968606;
         public static final int notification_action = 2130968629;
         public static final int notification_action_tombstone = 2130968630;
         public static final int notification_template_custom_big = 2130968631;
@@ -149,7 +120,6 @@ public final class R {
         public static final int TextAppearance_Compat_Notification_Title = 2131427452;
         public static final int Widget_Compat_NotificationActionContainer = 2131427457;
         public static final int Widget_Compat_NotificationActionText = 2131427458;
-        public static final int Widget_Support_CoordinatorLayout = 2131427827;
     }
 
     public static final class styleable {
@@ -157,17 +127,6 @@ public final class R {
         public static final int ColorStateListItem_alpha = 2;
         public static final int ColorStateListItem_android_alpha = 1;
         public static final int ColorStateListItem_android_color = 0;
-        public static final int[] CoordinatorLayout = {io.kodular.hemerson321.POSFULL.R.attr.keylines, io.kodular.hemerson321.POSFULL.R.attr.statusBarBackground};
-        public static final int[] CoordinatorLayout_Layout = {16842931, io.kodular.hemerson321.POSFULL.R.attr.layout_behavior, io.kodular.hemerson321.POSFULL.R.attr.layout_anchor, io.kodular.hemerson321.POSFULL.R.attr.layout_keyline, io.kodular.hemerson321.POSFULL.R.attr.layout_anchorGravity, io.kodular.hemerson321.POSFULL.R.attr.layout_insetEdge, io.kodular.hemerson321.POSFULL.R.attr.layout_dodgeInsetEdges};
-        public static final int CoordinatorLayout_Layout_android_layout_gravity = 0;
-        public static final int CoordinatorLayout_Layout_layout_anchor = 2;
-        public static final int CoordinatorLayout_Layout_layout_anchorGravity = 4;
-        public static final int CoordinatorLayout_Layout_layout_behavior = 1;
-        public static final int CoordinatorLayout_Layout_layout_dodgeInsetEdges = 6;
-        public static final int CoordinatorLayout_Layout_layout_insetEdge = 5;
-        public static final int CoordinatorLayout_Layout_layout_keyline = 3;
-        public static final int CoordinatorLayout_keylines = 0;
-        public static final int CoordinatorLayout_statusBarBackground = 1;
         public static final int[] FontFamily = {io.kodular.hemerson321.POSFULL.R.attr.fontProviderAuthority, io.kodular.hemerson321.POSFULL.R.attr.fontProviderPackage, io.kodular.hemerson321.POSFULL.R.attr.fontProviderQuery, io.kodular.hemerson321.POSFULL.R.attr.fontProviderCerts, io.kodular.hemerson321.POSFULL.R.attr.fontProviderFetchStrategy, io.kodular.hemerson321.POSFULL.R.attr.fontProviderFetchTimeout};
         public static final int[] FontFamilyFont = {16844082, 16844083, 16844095, 16844143, 16844144, io.kodular.hemerson321.POSFULL.R.attr.fontStyle, io.kodular.hemerson321.POSFULL.R.attr.font, io.kodular.hemerson321.POSFULL.R.attr.fontWeight, io.kodular.hemerson321.POSFULL.R.attr.fontVariationSettings, io.kodular.hemerson321.POSFULL.R.attr.ttcIndex};
         public static final int FontFamilyFont_android_font = 0;
