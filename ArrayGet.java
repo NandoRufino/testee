@@ -2,26 +2,28 @@ package gnu.kawa.reflect;
 
 import gnu.bytecode.Type;
 import gnu.mapping.Procedure;
-import gnu.mapping.Procedure3;
-import gnu.mapping.Values;
+import gnu.mapping.Procedure2;
 import java.io.Externalizable;
 import java.io.IOException;
 import java.io.ObjectInput;
 import java.io.ObjectOutput;
 import java.lang.reflect.Array;
 
-public class ArraySet extends Procedure3 implements Externalizable {
+public class ArrayGet extends Procedure2 implements Externalizable {
     Type element_type;
 
-    public ArraySet(Type type) {
-        this.element_type = type;
-        setProperty(Procedure.validateApplyKey, "gnu.kawa.reflect.CompileArrays:validateArraySet");
-        Procedure.compilerKey.set(this, "*gnu.kawa.reflect.CompileArrays:getForArraySet");
+    public boolean isSideEffectFree() {
+        return true;
     }
 
-    public Object apply3(Object obj, Object obj2, Object obj3) {
-        Array.set(obj, ((Number) obj2).intValue(), this.element_type.coerceFromObject(obj3));
-        return Values.empty;
+    public ArrayGet(Type type) {
+        this.element_type = type;
+        setProperty(Procedure.validateApplyKey, "gnu.kawa.reflect.CompileArrays:validateArrayGet");
+        Procedure.compilerKey.set(this, "*gnu.kawa.reflect.CompileArrays:getForArrayGet");
+    }
+
+    public Object apply2(Object obj, Object obj2) {
+        return this.element_type.coerceToObject(Array.get(obj, ((Number) obj2).intValue()));
     }
 
     public void writeExternal(ObjectOutput objectOutput) throws IOException {
